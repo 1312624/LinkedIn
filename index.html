@@ -1,104 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1"> 
-        <title> Hoàng Minh Trí | LinkedIn </title>
-        
-        <!-- Font Awesome -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
-        <!-- Bootstrap core CSS -->
-        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-        
-        <!-- Custom css -->
-        <link rel="stylesheet" href="css/style.css">
-    </head>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Hoàng Minh Trí | LinkedIn </title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+    <!-- Custom css -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body id="body" ng-app="app">
     
-    <body id="body">
-        <div class="main-page">
-            
-            <div class="cover">
-                <img src="img/Linkedin-logo-vector.png">
-            </div>
-        
-            <div class="container" id="content">
+    <div class="cover">
+        <img src="img/Linkedin-logo-vector.png">
+    </div>
+    
+    <div class="parallax">
+        <img src="img/city.jpg">
+    </div>
+    
+    <div class="main-page">
+        <div class="container background-profile">
+            <div class="background-profile-info" ng-controller="ProfileController as vm">
                 <div class="row">
                     <div class="col-md-2">
+                        <img src="img/avatar.jpg" class="img-responsive">
                     </div>
-                    <div class="col-md-8" id="information">
+                    
+                    <div class="col-md-8">
+                        <h3>{{vm.profile.fullname}}</h3>
+                        <h3>{{vm.profile.code}}</h3>
+                        <h5>{{vm.profile.workplace}}</h5>
+                        
                         <div class="row">
-                            <div class="col-md-3">
-                                <img src="img/avatar.jpg" class="img-responsive">
+                            <div class="col-md-2">
+                                <h6>Address</h6>
                             </div>
                             <div class="col-md-6">
-                                <h1>Minh Tri Hoang</h1>
-                                <h3>1312624</h3>
-                                <h4>Sinh viên năm 3, khoa CNTT | Đại học KHTN</h4>
-                                <div class="row" id="specific-info">
-                                    <div class="col-md-4">
-                                        <h5>Ngày Sinh</h5>
-                                    </div>
-                                    <div class="col-md-1">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <h5>10/11/1995</h5>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <h5>Địa chỉ</h5>
-                                    </div>
-                                    <div class="col-md-1">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <h5>320/77 Đoàn Văn Bơ P10, Q4, TPHCM</h5>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <h5>Nghề nghiệp</h5>
-                                    </div>
-                                    <div class="col-md-1">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <h5>Sinh Viên</h5>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <h5>Tình Trạng Hôn Nhân</h5>
-                                    </div>
-                                    <div class="col-md-1">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <h5>Đã có Yến</h5>
-                                    </div>
-                                </div>
+                                 <h5>{{vm.profile.currentAddress}}</h5>
                             </div>
                         </div>
                         
-                        <hr>
-                        
-                        <div class="aboutme">
-                            <div class="row">
-                                <div class="col-md-1">
-                                </div>
-                                <div class="col-md-10">
-                                    <h2>Hiện đang là sinh viên năm 3 khoa CNTT trường Đại học KHTN TPHCM</h2>
-                                </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <h6>Date Of Birth</h6>
+                            </div>
+                            <div class="col-md-6">
+                                <h5>{{vm.profile.dateofbirth}}</h5>
                             </div>
                         </div>
                         
+                        <div class="row">
+                            <div class="col-md-2">
+                                <h6>RelationShip</h6>
+                            </div>
+                            <div class="col-md-6">
+                                <h5>{{vm.profile.relationship}}</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <hr id="line">
+                <div class="contact" ng-controller="ContactController as vm">
+                    <div class="Specific-Contact" ng-hide="vm.IsHide">
+                        <div class="row">
+                            <div class="col-md-1">
+                            </div>
+                            <div class="col-md-6">
+                                <h5>{{vm.contact.facebook}}
+                            </div>
+                        </div>
                     </div>
                     
-                    <div class="col-md-2">
+                    <div class="row Contact">
+                        <div class="col-md-1">
+                        </div>
+                      
+                        <div class="col-md-8">
+                            <a href="{{vm.contact.linkedIn}}" target="_blank">{{vm.contact.linkedIn}}</a>            
+                        </div>
+                        <div class="col-md-2">
+                            <button class="btn btn-primary" ng-click="vm.Hide()">Contact Info</button>
+                        </div>
                     </div>
-                    
                 </div>
             </div>
         </div>
         
-    </body>
+        <div class="container background-summary">
+        </div>
+    </div>
+
+    <!-- Script -->
+    <script src="js/angular.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/module.js"></script>
+    <script src="js/profile-module.js"></script>
+    <script src="js/profile-controller.js"></script>
+    <script src="js/contact-module.js"></script>
+    <script src="js/contact-controller.js"></script>
+</body>
+
 </html>

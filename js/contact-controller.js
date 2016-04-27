@@ -23,7 +23,6 @@
             })
             
          }
-         
          function hide() {
              vm.IsHide = !vm.IsHide;
          } 

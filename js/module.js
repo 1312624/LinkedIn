@@ -2,6 +2,6 @@
     'use strict';
 
     angular.module('app', [
-        'app-profile','app-contact'
+        'app-profile','app-contact','app-languages'
     ]);
 })();

@@ -69,34 +69,57 @@
                     </div>
                 </div>
                 
-                <hr id="line">
                 <div class="contact" ng-controller="ContactController as vm">
+                    
                     <div class="Specific-Contact" ng-hide="vm.IsHide">
                         <div class="row">
-                            <div class="col-md-1">
+                            <div class="col-md-2">
                             </div>
-                            <div class="col-md-6">
-                                <h5>{{vm.contact.facebook}}
+                            
+                            <div class="col-md-4">
+                                <h5>{{vm.contact.facebook}}</h5>
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-2">
+                            </div>
+                            <div class="col-md-4">
+                                <h5>{{vm.contact.gmail}}</h5>
+                            </div>
+                            
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="Public-Contact">
+                        <div class="row">
+                            <div class="col-md-2">
+                            </div>
+                        
+                            <div class="col-md-8">
+                                <a id="contact-linked" href="{{vm.contact.linkedIn}}" target="_blank">{{vm.contact.linkedIn}}</a>            
+                            </div>
+                            <div class="col-md-2">
+                                <button class="btn btn-primary btnContact" ng-click="vm.Hide()">Contact Info</button>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="row Contact">
-                        <div class="col-md-1">
-                        </div>
-                      
-                        <div class="col-md-8">
-                            <a href="{{vm.contact.linkedIn}}" target="_blank">{{vm.contact.linkedIn}}</a>            
-                        </div>
-                        <div class="col-md-2">
-                            <button class="btn btn-primary" ng-click="vm.Hide()">Contact Info</button>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
         
-        <div class="container background-summary">
+        <div class="container background-summary" ng-controller="LanguageController as vm">
+            <div class="row">
+                <div class="col-md-2" id="shape">
+                    <h5>Background</h5>
+                </div>
+            </div>
+            <div ng-repeat="language in vm.languages">
+            </div>
+            
         </div>
     </div>
 
@@ -108,6 +131,8 @@
     <script src="js/profile-controller.js"></script>
     <script src="js/contact-module.js"></script>
     <script src="js/contact-controller.js"></script>
+    <script src="js/language-module.js"></script>
+    <script src="js/language-controller.js"></script>
 </body>
 
 </html>

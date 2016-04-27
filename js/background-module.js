@@ -1,7 +1,7 @@
 (function() {
     'use strict';
 
-    angular.module('app-languages', [
+    angular.module('app-background', [
         
     ]);
 })();

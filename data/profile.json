@@ -18,19 +18,46 @@
     "background":
     {
         "summary":{
-            
+            "current":"Junior Student At University Of Science",
+            "target":"Want to become a great developer of android application or web (full - stack)",
+            "strongPoint":"Good at seft-study and working in groups",
+            "weakPoint":"English is not good and try to improve it every day"
         },
-        "experience":{
-            
-        },
-        "project":{
-            
-        },
-        "skill":{
-            
-        },
-        "education":{
-            
-        }
+        "experience":"Just a 3rd-years student so i dont have to much experience but i will accumulate it in this summer by become an intership",
+        "project":
+            [
+                {
+                    "name":"Minesweeper Console",
+                    "time":"1st-year in university",
+                    "language":"Writen by C and C++"   
+                },
+                {
+                    "name":"Android App MagicNumS",
+                    "time":"2nd-year in university",
+                    "language":"Writen by Android Studio"
+                },
+                {
+                    "name":"Gomoku Online And My Paint",
+                    "time":"3rd-year in university",
+                    "language":"writen by Wpf"
+                },
+                {
+                    "name":"JobFinder",
+                    "time":"3rd-year in university",
+                    "language":"writen by Android Studio using Retrofit Library"
+                }
+            ],
+        "skill":"Good at C/C++/C#, .Net framework and HTML/CSS/Javascript, Android, SQL Server",
+        "education":
+        [
+            {
+                "school":"Trung Vuong High School, Dictrict 1, HCM city",
+                "Time":"2010-2012"
+            },
+            {
+                "school":"University of science, Dictrict 5, HCM city",
+                "Time":"2013-2017"
+            }
+        ]
     }
 }

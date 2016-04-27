@@ -111,15 +111,101 @@
             </div>
         </div>
         
-        <div class="container background-summary" ng-controller="LanguageController as vm">
+        <div class="container background background-summary" ng-controller="BackgroundController as vm">
             <div class="row">
-                <div class="col-md-2" id="shape">
-                    <h5>Background</h5>
+                <div class="col-md-2 shape">
+                    <h5>Summary</h5>
                 </div>
             </div>
-            <div ng-repeat="language in vm.languages">
+            
+            <div class="row">
+                <div class="col-md-2">
+                </div>
+                <div class="col-md-6">
+                    <h5>{{vm.background.summary.current}}</h5>
+                    <h5>{{vm.background.summary.target}}</h5>
+                    <h5>{{vm.background.summary.strongPoint}}</h5>
+                    <h5>{{vm.background.summary.weakPoint}}</h5>
+                </div>
             </div>
             
+        </div>
+        
+        <div class="container background background-experience" ng-controller="BackgroundController as vm">
+            <div class="row">
+                <div class="col-md-2 shape">
+                    <h5>Experience</h5>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-2">
+                </div>
+                
+                <div class="col-md-6">
+                    <h5>{{vm.background.experience}}</h5>
+                </div>
+            </div>
+            
+        </div>
+        
+        <div class="container background background-project" ng-controller="BackgroundController as vm">
+            <div class="row">
+                <div class="col-md-2 shape">
+                    <h5>Project</h5>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-2">
+                </div>
+                <div class="col-md-6">
+                    <div class="project" ng-repeat="project in vm.background.project">
+                        <ul>
+                            <li>Name: {{project.name}}</li>
+                            <li>Time: {{project.time}}</li>
+                            <li>Language: {{project.language}}</li>
+                        </ul>        
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="container background background-skill" ng-controller="BackgroundController as vm">
+            <div class="row">
+                <div class="col-md-2 shape">
+                    <h5>Skill</h5>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-2">
+                </div>
+                <div class="col-md-6">
+                    <h5>{{vm.background.skill}}</h5>
+                </div>
+            </div>
+        </div>
+        
+        <div class="container background background-education" ng-controller="BackgroundController as vm">
+            <div class="row">
+                <div class="col-md-2 shape">
+                    <h5>Education</h5>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-2">
+                </div>
+                <div class="col-md-6">
+                    <div ng-repeat="school in vm.background.education">
+                        <ul>
+                            <li>Time: {{school.Time}}</li>
+                            <li>Name: {{school.school}}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -131,8 +217,8 @@
     <script src="js/profile-controller.js"></script>
     <script src="js/contact-module.js"></script>
     <script src="js/contact-controller.js"></script>
-    <script src="js/language-module.js"></script>
-    <script src="js/language-controller.js"></script>
+    <script src="js/background-module.js"></script>
+    <script src="js/background-controller.js"></script>
 </body>
 
 </html>

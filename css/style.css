@@ -72,10 +72,9 @@
     height: 70px;
 }
 
-.background-summary{
+.background{
     margin-top: 10px;
     width: 80%;
-    height: 300px;
     background-color: white;
     border: solid 1px black;
 }
@@ -91,7 +90,7 @@
 
 
 #contact-linked{
-    color: lightgray;
+    color: black;
     margin-top: 10px !important;
 }
 
@@ -106,12 +105,17 @@
     cursor: pointer;
 }
 
-#shape{
+.shape{
     background-color: black;
     width: 105px;
     margin-left: 15px;
 }
 
-#shape h5{
+.shape h5{
     color: white;
+}
+
+ul
+{
+    list-style-type: none;
 }

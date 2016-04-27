@@ -29,6 +29,9 @@
 
 .background-profile{
     width: 80%;
+    border: solid 1px black;
+    padding-left: 0px;
+    padding-right: 0px;
 }
 .background-profile-info{
     background-color: white;
@@ -62,15 +65,9 @@
     font-weight: bold;
 }
 
-#line{
-    border-width: 1px;
-    border-color: black;
-    border-style: dashed;
-}
 
 
 .Specific-Contact{
-    margin-top: -20px;
     background-color: rgb(242,242,242);
     height: 70px;
 }
@@ -80,4 +77,41 @@
     width: 80%;
     height: 300px;
     background-color: white;
+    border: solid 1px black;
+}
+
+.container{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.Public-Contact{
+    border-top: dashed 1px black;
+}
+
+
+#contact-linked{
+    color: lightgray;
+    margin-top: 10px !important;
+}
+
+.btnContact{
+    margin-top: 5px;
+    height: 30px;
+    margin-bottom: 5px;
+}
+
+#contact-linked:hover{
+    color: dodgerblue;
+    cursor: pointer;
+}
+
+#shape{
+    background-color: black;
+    width: 105px;
+    margin-left: 15px;
+}
+
+#shape h5{
+    color: white;
 }

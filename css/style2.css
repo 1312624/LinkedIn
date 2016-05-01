@@ -1,0 +1,14 @@
+.row .col-md-1 .editButton{
+    display: none;
+}
+
+.col-md-4:hover + .col-md-1 .editButton{ 
+    display: block;
+}
+
+.edit-form{
+    padding-top: 10px;
+    border: 1px solid black;
+    width: 200px;
+    padding-bottom: 10px;
+}

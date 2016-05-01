@@ -15,6 +15,7 @@
 
     <!-- Custom css -->
     <link rel="stylesheet" href="css/style.css">
+    
 </head>
 
 <body id="body" ng-app="app">
@@ -36,9 +37,52 @@
                     </div>
                     
                     <div class="col-md-8">
-                        <h3>{{vm.profile.fullname}}</h3>
-                        <h3>{{vm.profile.code}}</h3>
-                        <h5>{{vm.profile.workplace}}</h5>
+                        <div class="row">
+                            <div class="col-md-3 edit">
+                                    <h3>{{vm.profile.fullname}}</h3>
+                            </div>
+                            <div class="col-md-1 editButton">
+                                    <button class="btn btn-edit btn-xs" ng-click="vm.Hide()"><i class="fa fa-pencil fa-lg"></i></button>
+                            </div>
+                            
+                            <div class="edit-form" ng-hide="vm.IsHide">
+                                <form class="form-inline" role="form">
+                                    <div class="form-group">
+                                        <label class="sr-only" for="exampleInputEmail2">LastName</label>
+                                        <input type="text" class="form-control" id="exampleInputEmail2" ng-model="lastname">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="sr-only" for="exampleInputPassword2">FirstName</label>
+                                        <input type="text" class="form-control" id="exampleInputPassword2" ng-model="firstname">
+                                    </div>
+                                </form>
+                                <form class="form-inline" role="form">
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-primary" ng-click="Submit()">Save</button>
+                                        <button type="submit" class="btn btn-default" ng-click="vm.Hide()">Cancel</button>
+                                    </div>
+                                </form>
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-1 edit">
+                                    <h4>{{vm.profile.code}}</h4>
+                            </div>
+                            <div class="col-md-1 editButton">
+                                    <button class="btn btn-edit btn-xs" id="btnCode"><i class="fa fa-pencil fa-lg"></i></button>
+                            </div>
+                        </div>
+                        	
+                        <div class="row">
+                            <div class="col-md-5 col-sm-8 edit">
+                                    <h5>{{vm.profile.workplace}}</h5>
+                            </div>
+                            <div class="col-md-1 editButton">
+                                    <button class="btn btn-edit btn-xs" id="btnWorkplace"><i class="fa fa-pencil fa-lg"></i></button>
+                            </div>
+                        </div>
                         
                         <div class="row">
                             <div class="col-md-2">

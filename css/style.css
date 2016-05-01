@@ -27,12 +27,14 @@
     background-color: lightgray;
 }
 
+
 .background-profile{
     width: 80%;
     border: solid 1px black;
     padding-left: 0px;
     padding-right: 0px;
 }
+
 .background-profile-info{
     background-color: white;
     margin-top: -80px;
@@ -41,14 +43,64 @@
 .col-md-3 img{
     height: 250px;
 }
-.col-md-8 h3{
-    margin-top: -4px;
+
+.edit h3{
+    margin-top: -2px;
     color: white;
 }
 
-.col-md-8 h5{
-    color: darkgray;
-    margin-top: -5px;
+.edit h4{
+    margin-top: -2px;
+    color: white;
+}
+
+.edit:hover{
+    cursor: pointer;
+}
+
+.editButton{
+    display: none;
+}
+
+
+.background-profile-info:hover .editButton{
+    display: block;
+}
+
+.col-md-5{
+    padding: 0px;
+}
+
+.edit-form{
+    position: absolute;
+    margin-left: 200px;
+}
+.col-md-3{
+    padding: 0px;
+}
+
+.col-md-1{
+    padding: 0px;
+}
+
+.btn-edit{
+    margin-left: 15px;
+}
+
+#btnCode{
+    margin-top:-5px;
+    margin-left: 20px;
+}
+
+#btnWorkplace{
+    margin-left: -70px;
+    margin-top:-10px;
+}
+
+.edit h5{
+    margin-top: -2px !important;
+    color: darkgray !important;
+    
 }
 
 .col-md-6 h5{

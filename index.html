@@ -16,6 +16,9 @@
     <!-- Custom css -->
     <link rel="stylesheet" href="css/style.css">
     
+    <!-- Including CSS & jQuery Dialog UI Here-->
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/themes/ui-darkness/jquery-ui.css" rel="stylesheet">
+    
 </head>
 
 <body id="body" ng-app="app">
@@ -42,10 +45,10 @@
                                     <h3>{{vm.profile.fullname}}</h3>
                             </div>
                             <div class="col-md-1 editButton">
-                                    <button class="btn btn-edit btn-xs" ng-click="vm.Hide()"><i class="fa fa-pencil fa-lg"></i></button>
+                                    <button class="btn btn-edit btn-xs" ng-click="vm.Hide('0')"><i class="fa fa-pencil fa-lg"></i></button>
                             </div>
-                            
-                            <div class="edit-form" ng-hide="vm.IsHide">
+                            <!-- edit form index 0 -->
+                            <div class="edit-form edit-fullname-form" ng-hide="vm.IsHide[0]">
                                 <form class="form-inline" role="form">
                                     <div class="form-group">
                                         <label class="sr-only" for="exampleInputEmail2">LastName</label>
@@ -57,9 +60,9 @@
                                     </div>
                                 </form>
                                 <form class="form-inline" role="form">
-                                    <div class="form-group">
-                                        <button type="submit" class="btn btn-primary" ng-click="Submit()">Save</button>
-                                        <button type="submit" class="btn btn-default" ng-click="vm.Hide()">Cancel</button>
+                                    <div>
+                                        <button type="submit" class="btn btn-primary" ng-click="vm.SubmitName()">Save</button>
+                                        <button type="submit" class="btn btn-default" ng-click="vm.Hide('0')">Cancel</button>
                                     </div>
                                 </form>
                             </div>
@@ -67,20 +70,50 @@
                         </div>
                         
                         <div class="row">
-                            <div class="col-md-1 edit">
-                                    <h4>{{vm.profile.code}}</h4>
+                            <div class="col-md-7 edit">
+                                    <h4>Student at {{vm.profile.school}}</h4>
                             </div>
                             <div class="col-md-1 editButton">
-                                    <button class="btn btn-edit btn-xs" id="btnCode"><i class="fa fa-pencil fa-lg"></i></button>
+                                    <button class="btn btn-edit btn-xs" id="btnCode" ng-click="vm.Hide('1')"><i class="fa fa-pencil fa-lg"></i></button>
+                            </div>
+                            <!-- edit form index 1 -->
+                            <div class="edit-form edit-code-form" ng-hide="vm.IsHide[1]">
+                                <form class="form-inline" role="form">
+                                    <div>
+                                        <label class="sr-only">School</label>
+                                        <input type="text" class="form-control" ng-model="school">
+                                    </div>
+                                </form>
+                                <form class="form-inline" role="form">
+                                    <div>
+                                        <button type="submit" class="btn btn-primary" ng-click="vm.SubmitSchool()">Save</button>
+                                        <button type="submit" class="btn btn-default" ng-click="vm.Hide('1')">Cancel</button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                         	
                         <div class="row">
-                            <div class="col-md-5 col-sm-8 edit">
+                            <div class="col-md-7 edit">
                                     <h5>{{vm.profile.workplace}}</h5>
                             </div>
                             <div class="col-md-1 editButton">
-                                    <button class="btn btn-edit btn-xs" id="btnWorkplace"><i class="fa fa-pencil fa-lg"></i></button>
+                                    <button class="btn btn-edit btn-xs" id="btnWorkplace" ng-click="vm.Hide('2')"><i class="fa fa-pencil fa-lg"></i></button>
+                            </div>
+                            <!-- edit form index 2 -->
+                            <div class="edit-form edit-workplace-form" ng-hide="vm.IsHide[2]">
+                                <form class="form-inline" role="form">
+                                    <div>
+                                        <label class="sr-only">Workplace</label>
+                                        <input type="text" class="form-control" ng-model="workplace">
+                                    </div>
+                                </form>
+                                <form class="form-inline" role="form">
+                                    <div>
+                                        <button type="submit" class="btn btn-primary" ng-click="vm.SubmitWorkplace()">Save</button>
+                                        <button type="submit" class="btn btn-default" ng-click="vm.Hide('2')">Cancel</button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                         
@@ -91,6 +124,24 @@
                             <div class="col-md-6">
                                  <h5>{{vm.profile.currentAddress}}</h5>
                             </div>
+                            <div class="col-md-1 editButton">
+                                    <button class="btn btn-edit btn-xs" id="btnAddress" ng-click="vm.Hide('3')"><i class="fa fa-pencil fa-lg"></i></button>
+                            </div>
+                            <!-- edit form index 3 -->
+                            <div class="edit-form edit-address-form" ng-hide="vm.IsHide[3]">
+                                <form class="form-inline" role="form">
+                                    <div>
+                                        <label class="sr-only">Address</label>
+                                        <input type="text" class="form-control" ng-model="address">
+                                    </div>
+                                </form>
+                                <form class="form-inline" role="form">
+                                    <div>
+                                        <button type="submit" class="btn btn-primary" ng-click="vm.SubmitAddress()">Save</button>
+                                        <button type="submit" class="btn btn-default" ng-click="vm.Hide('3')">Cancel</button>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                         
                         <div class="row">
@@ -99,6 +150,24 @@
                             </div>
                             <div class="col-md-6">
                                 <h5>{{vm.profile.dateofbirth}}</h5>
+                            </div>
+                            <div class="col-md-1 editButton">
+                                    <button class="btn btn-edit btn-xs" id="btnBirthday" ng-click="vm.Hide('2')"><i class="fa fa-pencil fa-lg"></i></button>
+                            </div>
+                            <!-- edit form index 4 -->
+                            <div class="edit-form edit-dateofbirth-form" ng-hide="vm.IsHide[4]">
+                                <form class="form-inline" role="form">
+                                    <div>
+                                        <label class="sr-only">DateOfBirth</label>
+                                        <input type="text" class="form-control" ng-model="dateofbirth">
+                                    </div>
+                                </form>
+                                <form class="form-inline" role="form">
+                                    <div>
+                                        <button type="submit" class="btn btn-primary" ng-click="vm.SubmitDateOfBirth()">Save</button>
+                                        <button type="submit" class="btn btn-default" ng-click="vm.Hide('4')">Cancel</button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                         
@@ -109,13 +178,32 @@
                             <div class="col-md-6">
                                 <h5>{{vm.profile.relationship}}</h5>
                             </div>
+                            <div class="col-md-1 editButton">
+                                    <button class="btn btn-edit btn-xs" id="btnRelationship" ng-click="vm.Hide('5')"><i class="fa fa-pencil fa-lg"></i></button>
+                            </div>
+                            <!-- edit form index 5 -->
+                            <div class="edit-form edit-relationship-form" ng-hide="vm.IsHide[5]">
+                                <form class="form-inline" role="form">
+                                    <div>
+                                        <label class="sr-only">Relationship</label>
+                                        <input type="text" class="form-control" ng-model="relationship">
+                                    </div>
+                                </form>
+                                <form class="form-inline" role="form">
+                                    <div>
+                                        <button type="submit" class="btn btn-primary" ng-click="vm.SubmitRelationship()">Save</button>
+                                        <button type="submit" class="btn btn-default" ng-click="vm.Hide('5')">Cancel</button>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
                 
                 <div class="contact" ng-controller="ContactController as vm">
                     
-                    <div class="Specific-Contact" ng-hide="vm.IsHide">
+                    
+                    <div class="Specific-Contact" ng-hide="vm.IsHide[3]"> <!-- vm.IsHide[3] hàm Vm.Hide('3') để thay đổi giá trị của biến vm.IsHide[3] -->
                         <div class="row">
                             <div class="col-md-2">
                             </div>
@@ -124,6 +212,25 @@
                                 <h5>{{vm.contact.facebook}}</h5>
                             </div>
                             
+                            <div class="col-md-1 editButton">
+                                    <button class="btn btn-edit btn-xs" id="btnFacebook" ng-click="vm.Hide('0')"><i class="fa fa-pencil fa-lg"></i></button>
+                            </div>
+                            
+                            <!-- edit contact form index 0 -->
+                            <div class="edit-form edit-contact-facebook-form" ng-hide="vm.IsHide[0]">
+                                <form class="form-inline" role="form">
+                                    <div>
+                                        <label class="sr-only">Facebook</label>
+                                        <input type="text" class="form-control" ng-model="facebook">
+                                    </div>
+                                </form>
+                                <form class="form-inline" role="form">
+                                    <div>
+                                        <button type="submit" class="btn btn-primary" ng-click="vm.SubmitFacebook()">Save</button>
+                                        <button type="submit" class="btn btn-default" ng-click="vm.Hide('0')">Cancel</button>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                         
                         <div class="row">
@@ -132,7 +239,24 @@
                             <div class="col-md-4">
                                 <h5>{{vm.contact.gmail}}</h5>
                             </div>
-                            
+                            <div class="col-md-1 editButton">
+                                    <button class="btn btn-edit btn-xs" id="btnGmail" ng-click="vm.Hide('1')"><i class="fa fa-pencil fa-lg"></i></button>
+                            </div>
+                            <!-- edit contact form index 1 -->
+                            <div class="edit-form edit-contact-gmail-form" ng-hide="vm.IsHide[1]">
+                                <form class="form-inline" role="form">
+                                    <div>
+                                        <label class="sr-only">Gmail</label>
+                                        <input type="text" class="form-control" ng-model="gmail">
+                                    </div>
+                                </form>
+                                <form class="form-inline" role="form">
+                                    <div>
+                                        <button type="submit" class="btn btn-primary" ng-click="vm.SubmitGmail()">Save</button>
+                                        <button type="submit" class="btn btn-default" ng-click="vm.Hide('1')">Cancel</button>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                         
                     </div>
@@ -142,11 +266,29 @@
                             <div class="col-md-2">
                             </div>
                         
-                            <div class="col-md-8">
+                            <div class="col-md-6">
                                 <a id="contact-linked" href="{{vm.contact.linkedIn}}" target="_blank">{{vm.contact.linkedIn}}</a>            
                             </div>
+                            <div class="col-md-1 editButton">
+                                    <button class="btn btn-edit btn-xs" id="btnLinkedIn" ng-click="vm.Hide('2')")><i class="fa fa-pencil fa-lg"></i></button>
+                            </div>
                             <div class="col-md-2">
-                                <button class="btn btn-primary btnContact" ng-click="vm.Hide()">Contact Info</button>
+                                <button class="btn btn-primary btnContact" ng-click="vm.Hide('3')">Contact Info</button>
+                            </div>
+                            <!-- edit contact form index 2 -->
+                            <div class="edit-form edit-contact-linkedin-form" ng-hide="vm.IsHide[2]">
+                                <form class="form-inline" role="form">
+                                    <div>
+                                        <label class="sr-only">LinkedIn</label>
+                                        <input type="text" class="form-control" ng-model="LinkedIn">
+                                    </div>
+                                </form>
+                                <form class="form-inline" role="form">
+                                    <div>
+                                        <button type="submit" class="btn btn-primary" ng-click="vm.SubmitLinkedIn()">Save</button>
+                                        <button type="submit" class="btn btn-default" ng-click="vm.Hide('2')">Cancel</button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -155,98 +297,148 @@
             </div>
         </div>
         
-        <div class="container background background-summary" ng-controller="BackgroundController as vm">
-            <div class="row">
-                <div class="col-md-2 shape">
-                    <h5>Summary</h5>
-                </div>
-            </div>
-            
-            <div class="row">
-                <div class="col-md-2">
-                </div>
-                <div class="col-md-6">
-                    <h5>{{vm.background.summary.current}}</h5>
-                    <h5>{{vm.background.summary.target}}</h5>
-                    <h5>{{vm.background.summary.strongPoint}}</h5>
-                    <h5>{{vm.background.summary.weakPoint}}</h5>
-                </div>
-            </div>
-            
-        </div>
-        
-        <div class="container background background-experience" ng-controller="BackgroundController as vm">
-            <div class="row">
-                <div class="col-md-2 shape">
-                    <h5>Experience</h5>
-                </div>
-            </div>
-            
-            <div class="row">
-                <div class="col-md-2">
+        <div class="container background">
+            <div class="background-summary" ng-controller="BackgroundController as vm">
+                <div class="row">
+                    <div class="col-md-2 shape">
+                        <h5>Background</h5>
+                    </div>
                 </div>
                 
-                <div class="col-md-6">
-                    <h5>{{vm.background.experience}}</h5>
+                <div class="row">
+                    <div class="col-md-1">
+                        <img src="img/summary.jpg" class="img-background">
+                    </div>
+                    <div class="col-md-1 background-title">
+                        <h4>Summary</h4>
+                    </div>
                 </div>
-            </div>
-            
-        </div>
-        
-        <div class="container background background-project" ng-controller="BackgroundController as vm">
-            <div class="row">
-                <div class="col-md-2 shape">
-                    <h5>Project</h5>
-                </div>
-            </div>
-            
-            <div class="row">
-                <div class="col-md-2">
-                </div>
-                <div class="col-md-6">
-                    <div class="project" ng-repeat="project in vm.background.project">
-                        <ul>
-                            <li>Name: {{project.name}}</li>
-                            <li>Time: {{project.time}}</li>
-                            <li>Language: {{project.language}}</li>
-                        </ul>        
+                
+                <div class="row">
+                    <div class="col-md-1">
+                    </div>
+                    <div class="col-md-6 content">
+                        <h5>{{vm.background.summary.current}}</h5>
+                        <h5>{{vm.background.summary.target}}</h5>
+                        <h5>{{vm.background.summary.strongPoint}}</h5>
+                        <h5>{{vm.background.summary.weakPoint}}</h5>
                     </div>
                 </div>
             </div>
-        </div>
-        
-        <div class="container background background-skill" ng-controller="BackgroundController as vm">
-            <div class="row">
-                <div class="col-md-2 shape">
-                    <h5>Skill</h5>
+            
+            <hr  width="100%" align="center" />
+            
+            <div class="background-experience" ng-controller="BackgroundController as vm">
+                <div class="row">
+                    <div class="col-md-1">
+                        <img src="img/project.png" class="img-background" id="exp-img">
+                    </div>
+                    <div class="col-md-1 background-title">
+                        <h4>Experience</h4>
+                    </div>
+                    <div class="col-md-8">
+                    </div>
+                    <div class="col-md-2">
+                        </br>
+                        <button class="btn btn-primary btn-default" id="btnAdd">Add</button>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-1">
+                    </div>
+                    
+                    <!-- Show Experience Form like a dialog at the center of page -->
+                    <div id="dialog" title="Experience Form">
+                        <form action="" method="post">
+                            <label>Position:</label>
+                            <input id="position" ng-model="position" name="position" type="text">
+                            <label>Company:</label>
+                            <input id="company" ng-model="company" name="company" type="text">
+                            <label>Time Start:</label>
+                            <input id="timestart" ng-model="timestart" name="timestart" type="text">
+                            <label>Time End:</label>
+                            <input id="timeend" ng-model="timeend" name="timeend" type="text">
+                            <label>Work Content:</label>
+                            <input id="content" ng-model="content" name="content" type="text">
+                            <input id="submit" ng-click ="vm.LoadData()" type="submit" value="Submit">
+                        </form>
+                    </div>
+                    
+                    <div class="col-md-6 content">
+                        <div ng-repeat="exp in vm.background.experience">
+                            <h4><b>{{exp.position}}</b></h4>
+                            <h4>{{exp.company}}</h4>
+                            <h5>{{exp.timestart}} - {{exp.timeend}}</h5>
+                            </br>
+                            <h6><b>{{exp.content}}</b></h6>
+                            <hr width="50%" align="right">
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <hr  width="100%" align="center" />
+            
+            <div class="background-project" ng-controller="BackgroundController as vm">
+                <div class="row">
+                    <div class="col-md-1">
+                        <img src="img/project.png" class="img-background">
+                    </div>
+                    <div class="col-md-1 background-title">
+                        <h4>Project</h4>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-2">
+                    </div>
+                    <div class="col-md-6">
+                        <div class="project" ng-repeat="project in vm.background.project">
+                            <ul>
+                                <li>Name: {{project.name}}</li>
+                                <li>Time: {{project.time}}</li>
+                                <li>Language: {{project.language}}</li>
+                            </ul>        
+                        </div>
+                    </div>
                 </div>
             </div>
             
-            <div class="row">
-                <div class="col-md-2">
+            <div class="background-skill" ng-controller="BackgroundController as vm">
+                <div class="row">
+                    <div class="col-md-2 shape">
+                        <h5>Skill</h5>
+                    </div>
                 </div>
-                <div class="col-md-6">
-                    <h5>{{vm.background.skill}}</h5>
-                </div>
-            </div>
-        </div>
-        
-        <div class="container background background-education" ng-controller="BackgroundController as vm">
-            <div class="row">
-                <div class="col-md-2 shape">
-                    <h5>Education</h5>
+                
+                <div class="row">
+                    <div class="col-md-2">
+                    </div>
+                    <div class="col-md-6">
+                        <h5>{{vm.background.skill}}</h5>
+                    </div>
                 </div>
             </div>
             
-            <div class="row">
-                <div class="col-md-2">
+            <div class="background-education" ng-controller="BackgroundController as vm">
+                <div class="row">
+                    <div class="col-md-2 shape">
+                        <h5>Education</h5>
+                    </div>
                 </div>
-                <div class="col-md-6">
-                    <div ng-repeat="school in vm.background.education">
-                        <ul>
-                            <li>Time: {{school.Time}}</li>
-                            <li>Name: {{school.school}}</li>
-                        </ul>
+                
+                <div class="row">
+                    <div class="col-md-2">
+                    </div>
+                    <div class="col-md-6">
+                        <div ng-repeat="school in vm.background.education">
+                            <ul>
+                                <li>Time: {{school.Time}}</li>
+                                <li>Name: {{school.school}}</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -254,6 +446,10 @@
     </div>
 
     <!-- Script -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+    <script src="js/dialog.js" type="text/javascript"></script>
+    
     <script src="js/angular.js"></script>
     <script src="js/angular.min.js"></script>
     <script src="js/module.js"></script>

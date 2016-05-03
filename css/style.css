@@ -27,7 +27,6 @@
     background-color: lightgray;
 }
 
-
 .background-profile{
     width: 80%;
     border: solid 1px black;
@@ -67,6 +66,11 @@
     display: block;
 }
 
+.background-profile-info:hover .btnContact{
+    display: block;
+    margin-left: -88px;
+}
+
 .col-md-5{
     padding: 0px;
 }
@@ -83,18 +87,22 @@
     padding: 0px;
 }
 
+.col-md-7{
+    padding: 0px;
+}
+
 .btn-edit{
     margin-left: 15px;
 }
 
 #btnCode{
     margin-top:-5px;
-    margin-left: 20px;
+    margin-left: -50px;
 }
 
 #btnWorkplace{
-    margin-left: -70px;
-    margin-top:-10px;
+    margin-left: -125px;
+    margin-top: -10px;
 }
 
 .edit h5{
@@ -165,9 +173,105 @@
 
 .shape h5{
     color: white;
+    font-weight: 520;
+}
+
+.img-background{
+    width: 45px;
+    margin-top: 25px;
+    margin-left: 35px;
+}
+
+.background-title{
+    margin-top: 25px;    
 }
 
 ul
 {
     list-style-type: none;
+}
+
+.edit-form{
+    position:absolute !important;
+    display: block;
+    margin-left: 260px;
+    margin-top: -30px;
+    border: 1px solid lightgray;
+    background: white;
+}
+
+.edit-code-form{
+    margin-left: 250px !important;
+}
+
+.form-inline button{
+    margin: 5px;
+}
+
+.form-inline input{
+    margin: 5px;
+    color: black;
+}
+
+
+#btnFacebook{
+    margin-top: 5px;
+    margin-left: -80px;
+    background: white;
+}
+
+#btnGmail{
+    margin-top: 5px;
+    margin-left: -80px;
+    background: white;
+}
+
+#btnLinkedIn{
+    margin-top: 1px;
+    margin-left: -120px;
+}
+
+
+#btnAdd{
+    border:1px solid #0c799e;
+    width:60px;
+    padding:5px;
+    font-size:14px;
+    font-weight:700;
+    color:#fff;
+    border-radius:3px;
+    background:linear-gradient(to bottom,#59d0f8 5%,#49c0e8 100%);
+    cursor:pointer
+}
+
+#btnAdd:hover {
+    background:linear-gradient(to bottom,#49c0e8 5%,#59d0f8 100%)
+}
+
+#dialog form{
+    text-align: center;
+}
+
+#dialog form input{
+    color: black;
+}
+
+#submit{
+    width:30%;
+    border:1px solid #59b4d4;
+    background:#0078a3;
+    color:#eee;
+    padding:3px 0;
+    border-radius:5px;
+    margin-top:10px;
+    cursor:pointer
+}
+
+#submit:hover {
+    border:1px solid #666;
+    background:#555;
+    color:#fff
+}
+.ui-dialog .ui-dialog-content {
+    padding:2em
 }

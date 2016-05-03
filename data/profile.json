@@ -2,8 +2,8 @@
     "info":
     {
         "fullname":"Hoàng Minh Trí",
-        "code":"1312624",
-        "workplace":"Faculty Of Information Technology",
+        "school":"VNUHCM - University of Science",
+        "workplace":"Faculty Of Information Technology | HCMUS",
         "currentAddress":"320/77 Đoàn Văn Bơ Street, Ho Chi Minh City",
         "dateofbirth":"11/10/1995",
         "relationship":"In a relationship with Phi Yến"
@@ -12,8 +12,7 @@
     {
         "linkedIn":"https://www.linkedin.com/in/hmtri1011",
         "facebook":"https://facebook.com/hmtri1011",
-        "gmail":"https://hmtri1011@gmail.com",
-        "phone":"(+84)963255154"
+        "gmail":"https://hmtri1011@gmail.com"
     },
     "background":
     {
@@ -23,7 +22,16 @@
             "strongPoint":"Good at seft-study and working in groups",
             "weakPoint":"English is not good and try to improve it every day"
         },
-        "experience":"Just a 3rd-years student so i dont have to much experience but i will accumulate it in this summer by become an intership",
+        "experience":
+        [
+            {
+                "position":"Freelancer",
+                "company":"At Home",
+                "timestart":"2016",
+                "timeend":"up to now",
+                "content":"Get all the Web (Front-End), Android Application and .NET Framework projects"
+            }
+        ],
         "project":
             [
                 {

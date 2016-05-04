@@ -3,7 +3,7 @@ $(document).ready(function () {
         $("#dialog").dialog({
             autoOpen: false
         });
-        $("#btnAdd").on("click", function () {
+        $("#btnAddExp").on("click", function () {
             $("#dialog").dialog("open");
         });
     });

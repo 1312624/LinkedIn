@@ -28,8 +28,15 @@
                 "position":"Freelancer",
                 "company":"At Home",
                 "timestart":"2016",
-                "timeend":"up to now",
+                "timeend":"Up to now",
                 "content":"Get all the Web (Front-End), Android Application and .NET Framework projects"
+            },
+            {
+                "position":"Junior Developer",
+                "company":"Google US | Silicon Valley",
+                "timestart":"10/2018",
+                "timeend":"10/2028",
+                "content":"Develop All Important Project Of Google Inc"
             }
         ],
         "project":
@@ -37,25 +44,43 @@
                 {
                     "name":"Minesweeper Console",
                     "time":"1st-year in university",
-                    "language":"Writen by C and C++"   
+                    "language":"Mini game in console - first big project in University "   
                 },
                 {
                     "name":"Android App MagicNumS",
                     "time":"2nd-year in university",
-                    "language":"Writen by Android Studio"
+                    "language":"Game in android will gain your mind and relax your soul with music"
                 },
                 {
                     "name":"Gomoku Online And My Paint",
                     "time":"3rd-year in university",
-                    "language":"writen by Wpf"
+                    "language":"Applications run in Windows OS"
                 },
                 {
                     "name":"JobFinder",
                     "time":"3rd-year in university",
-                    "language":"writen by Android Studio using Retrofit Library"
+                    "language":"An Android App using Retrofit Library and help people to get their job"
                 }
             ],
-        "skill":"Good at C/C++/C#, .Net framework and HTML/CSS/Javascript, Android, SQL Server",
+        "skill":
+            [
+                {
+                    "name":"C++",
+                    "target":"80%"
+                },
+                {
+                    "name":"C#",
+                    "target":"80%"
+                },
+                {
+                    "name":"Android",
+                    "target":"80%"
+                },
+                {
+                    "name":"HTML/CSS",
+                    "target":"80%"
+                }
+            ],
         "education":
         [
             {

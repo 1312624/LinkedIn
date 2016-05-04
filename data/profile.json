@@ -66,19 +66,19 @@
             [
                 {
                     "name":"C++",
-                    "target":"80%"
+                    "target":"80"
                 },
                 {
                     "name":"C#",
-                    "target":"80%"
+                    "target":"80"
                 },
                 {
                     "name":"Android",
-                    "target":"80%"
+                    "target":"80"
                 },
                 {
                     "name":"HTML/CSS",
-                    "target":"80%"
+                    "target":"80"
                 }
             ],
         "education":

@@ -10,6 +10,10 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
+    <!-- Material Design fonts -->
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/icon?family=Material+Icons">
+    
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
@@ -17,19 +21,22 @@
     <link rel="stylesheet" href="css/style.css">
     
     <!-- Including CSS & jQuery Dialog UI Here-->
-    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/themes/ui-darkness/jquery-ui.css" rel="stylesheet">
-    
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css" rel="stylesheet">
+
 </head>
 
 <body id="body" ng-app="app">
     
+    <script type="text/javascript">
+    </script>
     <div class="cover">
         <img src="img/Linkedin-logo-vector.png">
     </div>
-    
+
     <div class="parallax" ng-controller="ProfileController as vm">
         <img src="img/city.jpg">
-        <div class="editCover"><button class="btn btn-edit-cover btn-lg"><i class="fa fa-camera fa-lg"></i></a></div>
+        <input type="file" id="upload" name="upload" style="visibility: hidden; width: 1px; height: 1px" multiple />
+        <div class="editCover"><button class="btn btn-edit-cover btn-lg" onclick="document.getElementById('upload').click(); return false"><i class="fa fa-camera fa-lg"></i></a></div>
     </div>
     
     <div class="main-page">
@@ -313,11 +320,32 @@
                     <div class="col-md-1 background-title">
                         <h4>Summary</h4>
                     </div>
+                    <div class="col-md-8">
+                    </div>
+                    <div class="col-md-2">
+                        </br>
+                        <button class="btn btn-circle btn-lg" id="btnEditSummary"><i class="fa fa-pencil fa-lg"></i></button>
+                    </div>
                 </div>
                 
                 <div class="row">
                     <div class="col-md-1">
                     </div>
+                    
+                    <div class="dialog" id="dialog-sum" title="Edit Summary">
+                        <form action="" method="post">
+                            <label>Current Workplace:</label>
+                            <input id="current" ng-model="current" name="current" type="text">
+                            <label>Future Target:</label>
+                            <input id="target" ng-model="target" name="target" type="text">
+                            <label>Strong Point:</label>
+                            <input id="strong" ng-model="strong" name="strong" type="text">
+                            <label>Weak Point:</label>
+                            <input id="weak" ng-model="weak" name="weak" type="text">
+                            <input class="submit" ng-click ="vm.LoadData('Summary')" type="submit" value="Submit">
+                        </form>
+                    </div>
+
                     <div class="col-md-6 content">
                         <h5>{{vm.background.summary.current}}</h5>
                         <h5>{{vm.background.summary.target}}</h5>
@@ -342,7 +370,7 @@
                     </div>
                     <div class="col-md-2">
                         </br>
-                        <button class="btn btn-Add btn-circle btn-lg" id="btnAddExp"><i class="fa fa-plus-square fa-lg"></i></button>
+                        <button class="btn btn-circle btn-lg" id="btnAddExp"><i class="fa fa-plus-square fa-lg"></i></button>
                     </div>
                 </div>
                 
@@ -351,7 +379,7 @@
                     </div>
                     
                     <!-- Show Experience Form like a dialog at the center of page -->
-                    <div id="dialog" title="Experience Form">
+                    <div class="dialog" id="dialog-exp" title="Add Experience Form">
                         <form action="" method="post">
                             <label>Position:</label>
                             <input id="position" ng-model="position" name="position" type="text">
@@ -363,7 +391,7 @@
                             <input id="timeend" ng-model="timeend" name="timeend" type="text">
                             <label>Work Content:</label>
                             <input id="content" ng-model="content" name="content" type="text">
-                            <input id="submit" ng-click ="vm.LoadData()" type="submit" value="Submit">
+                            <input class="submit" ng-click ="vm.LoadData('Exp')" type="submit" value="Submit">
                         </form>
                     </div>
                     
@@ -391,16 +419,37 @@
                     <div class="col-md-1 background-title">
                         <h4>Project</h4>
                     </div>
+                    <div class="col-md-8">
+                    </div>
+                    <div class="col-md-2">
+                        </br>
+                        <button class="btn btn-circle btn-lg" id="btnAddProject"><i class="fa fa-plus-square fa-lg"></i></button>
+                    </div>
                 </div>
                 
                 <div class="row">
                     <div class="col-md-1">
                     </div>
+                    
+                    <div class="dialog" id="dialog-project" title="Add Project Form">
+                        <form action="" method="post">
+                            <label>Project Name:</br></label>
+                            <input id="projectname" ng-model="projectname" name="projectname" type="text">
+                            <label>Time Done:</label>
+                            <input id="time" ng-model="time" name="time" type="text">
+                            <label>Purpose:</label>
+                            <input id="purpose" ng-model="purpose" name="purpose" type="text">
+                            <input class="submit" ng-click ="vm.LoadData('Project')" type="submit" value="Submit">
+                        </form>
+                    </div>
+                    
+                    
                     <div class="col-md-6">
                         <div class="project" ng-repeat="project in vm.background.project">
                             <h4><b>{{project.name}}</b></h4>
                             <h5>{{project.time}}</h5>
                             <h5><b>{{project.language}}</b></h5>
+                            <hr width="50%" align="right">
                             </br>
                         </div>
                     </div>
@@ -417,11 +466,28 @@
                     <div class="col-md-1 background-title">
                         <h4>Skill</h4>
                     </div>
+                    <div class="col-md-8">
+                    </div>
+                    <div class="col-md-2">
+                        </br>
+                        <button class="btn btn-circle btn-lg" id="btnAddSkill"><i class="fa fa-plus-square fa-lg"></i></button>
+                    </div>
                 </div>
                 
                 <div class="row">
                     <div class="col-md-1">
                     </div>
+                    
+                    <div class="dialog" id="dialog-skill" title="Add Skill Form">
+                        <form action="" method="post">
+                            <label>Skill Name:</br></label>
+                            <input id="skill" ng-model="skill" name="skill" type="text">
+                            <label>Level(%):</label>
+                            <input id="level" ng-model="level" name="level" type="text">
+                            <input class="submit" ng-click ="vm.LoadData('Skill')" type="submit" value="Submit">
+                        </form>
+                    </div>
+                    
                     <div class="col-md-6">
                         <div ng-repeat="skill in vm.background.skill">
                             <div class="row">
@@ -431,7 +497,7 @@
                                     <h5><b>{{skill.name}}</b></h5>
                                 </div>
                                 <div class="target">
-                                    <h5><b>{{skill.target}}</b></h5>
+                                    <h5><b>{{skill.target}}%</b></h5>
                                 </div>
                             </div>
                             </br>
@@ -468,6 +534,16 @@
     </div>
 
     <!-- Script -->
+    
+    <script type="text/javascript">
+        $(function(){
+			$('#upload').change( function(event) {
+                var tmppath = URL.createObjectURL(event.target.files[0]);
+				$("#coverphoto").fadeIn("slow").attr('src',tmppath);
+			});
+        });
+    </script>
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
     <script src="js/dialog.js" type="text/javascript"></script>

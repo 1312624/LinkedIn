@@ -16,6 +16,10 @@ $(document).ready(function () {
             $("#dialog-skill").dialog("open");
         });
         
+        $("#btnAddEducation").on("click", function () {
+            $("#dialog-education").dialog("open");
+        });
+        
     });
   
     //Prevent form Reload Page;

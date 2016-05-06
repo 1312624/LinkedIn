@@ -298,3 +298,37 @@
 .ui-dialog .ui-dialog-content {
     padding:2em
 }
+
+.btn-edit-skill{
+    margin-top: 5px;
+    display:none;
+}
+
+.background-skill:hover .col-md-6 .col-md-6 .btn-edit-skill {
+    display: block;
+}
+
+.edit-skill-form{
+    margin-left: 100px;
+}
+
+.btn-edit-project{
+    display: none;
+    margin-top: 5px;
+    margin-left: -50px;
+}
+
+.btn-edit-school{
+    display: none;
+    margin-top: 5px;
+    margin-left: -20px;
+}
+
+
+.background-project:hover .row .col-md-6  .project .row .col-md-2 .btn-edit-project {
+    display: block;
+}
+
+.background-education:hover .row .col-md-6 div .row .col-md-2 .btn-edit-school {
+    display: block;
+}

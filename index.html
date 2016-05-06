@@ -29,6 +29,7 @@
     
     <script type="text/javascript">
     </script>
+    
     <div class="cover">
         <img src="img/Linkedin-logo-vector.png">
     </div>
@@ -446,11 +447,31 @@
                     
                     <div class="col-md-6">
                         <div class="project" ng-repeat="project in vm.background.project">
-                            <h4><b>{{project.name}}</b></h4>
-                            <h5>{{project.time}}</h5>
-                            <h5><b>{{project.language}}</b></h5>
-                            <hr width="50%" align="right">
-                            </br>
+                            <div class="row">
+                                <div class="col-md-10">
+                                    <h4><b>{{project.name}}</b></h4>
+                                    <h5>{{project.time}}</h5>
+                                    <h5><b>{{project.language}}</b></h5>
+                                </div>
+                                <div class="col-md-2">
+                                    <button class="btn btn-edit btn-edit-project btn-xs" ng-click="vm.SubmitProject($index)"><i class="fa fa-pencil fa-lg"></i></button>
+                                </div> 
+                                <div class="edit-form edit-project-form" ng-hide="vm.ProjectIsHide[$index]">
+                                    <form class="form-inline" role="form">
+                                        <div>
+                                            <input type="text" class="form-control" placeholder="Project Name" ng-model="vm.background.project[$index].name">
+                                            <input type="text" class="form-control" placeholder="Time Done" ng-model="vm.background.project[$index].time">
+                                            <input type="text" class="form-control" placeholder="What Does App Do" ng-model="vm.background.project[$index].language">                                
+                                        </div>
+                                    </form>
+                                    <form class="form-inline" role="form">
+                                        <div>
+                                            <button type="submit" class="btn btn-primary" ng-click="vm.SubmitProject($index)">Save</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <hr width="50%" align="right">                            
                         </div>
                     </div>
                 </div>
@@ -496,9 +517,30 @@
                                 <div class="col-md-3">
                                     <h5><b>{{skill.name}}</b></h5>
                                 </div>
-                                <div class="target">
-                                    <h5><b>{{skill.target}}%</b></h5>
+                                <div class="col-md-2">
+                                    <div class="target">
+                                        <h5><b>{{skill.target}}%</b></h5>
+                                    </div>    
                                 </div>
+                                
+                                <div class="col-md-6">
+                                    <button class="btn btn-edit btn-edit-skill btn-xs" ng-click="vm.SubmitSkill($index)"><i class="fa fa-pencil fa-lg"></i></button>
+                                </div>
+                                
+                                <div class="edit-form edit-skill-form" ng-hide="vm.SkillIsHide[$index]">
+                                    <form class="form-inline" role="form">
+                                        <div>
+                                            <input type="text" class="form-control" placeholder="Skill Name" ng-model="vm.background.skill[$index].name">
+                                            <input type="text" class="form-control" placeholder="Level You Reach" ng-model="vm.background.skill[$index].target">
+                                        </div>
+                                    </form>
+                                    <form class="form-inline" role="form">
+                                        <div>
+                                            <button type="submit" class="btn btn-primary" ng-click="vm.SubmitSkill($index)">Save</button>
+                                        </div>
+                                    </form>
+                                </div>
+                                
                             </div>
                             </br>
                         </div>
@@ -516,15 +558,54 @@
                     <div class="col-md-1 background-title">
                         <h4>Education</h4>
                     </div>
+                    <div class="col-md-8">
+                    </div>
+                    <div class="col-md-2">
+                        </br>
+                        <button class="btn btn-circle btn-lg" id="btnAddEducation"><i class="fa fa-plus-square fa-lg"></i></button>
+                    </div>
                 </div>
                 
                 <div class="row">
                     <div class="col-md-1">
                     </div>
+                    
+                    <div class="dialog" id="dialog-education" title="Add School Form">
+                        <form action="" method="post">
+                            <label>School Name:</br></label>
+                            <input id="school" ng-model="school" name="school" type="text">
+                            <label>Study Time:</label>
+                            <input id="timeschool" ng-model="timeschool" name="timeschool" type="text">
+                            <input class="submit" ng-click ="vm.LoadData('School')" type="submit" value="Submit">
+                        </form>
+                    </div>
+                    
                     <div class="col-md-6">
                         <div ng-repeat="school in vm.background.education">
-                            <h5><b>{{school.school}}</b></h5>
-                            <h5>{{school.Time}}</h5>
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <h5><b>{{school.school}}</b></h5>
+                                    <h5>{{school.Time}}</h5>    
+                                </div>
+                                <div class="col-md-2">
+                                    <button class="btn btn-edit btn-edit-school btn-xs" ng-click="vm.SubmitSchool($index)"><i class="fa fa-pencil fa-lg"></i></button>
+                                </div>
+                                
+                                <div class="edit-form edit-school-form" ng-hide="vm.SchoolIsHide[$index]">
+                                    <form class="form-inline" role="form">
+                                        <div>
+                                            <input type="text" class="form-control" placeholder="School Name" ng-model="vm.background.education[$index].school">
+                                            <input type="text" class="form-control" placeholder="Time You Study" ng-model="vm.background.education[$index].Time">
+                                        </div>
+                                    </form>
+                                    <form class="form-inline" role="form">
+                                        <div>
+                                            <button type="submit" class="btn btn-primary" ng-click="vm.SubmitSchool($index)">Save</button>
+                                        </div>
+                                    </form>
+                                </div>
+                                
+                            </div>
                             </br>
                         </div>
                     </div>
@@ -534,15 +615,6 @@
     </div>
 
     <!-- Script -->
-    
-    <script type="text/javascript">
-        $(function(){
-			$('#upload').change( function(event) {
-                var tmppath = URL.createObjectURL(event.target.files[0]);
-				$("#coverphoto").fadeIn("slow").attr('src',tmppath);
-			});
-        });
-    </script>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>

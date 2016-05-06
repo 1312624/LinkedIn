@@ -7,10 +7,24 @@
 
     BackgroundController.$inject = ['$http','$scope'];
     function BackgroundController($http,$scope) {
+        window.SC = $scope;
         var vm = this;
         vm.background = {};
         
+        vm.SkillIsHide = [true,true,true,true,true,true,true,true,true,true];
+            
+        vm.SubmitSkill = SubmitSkill;
+        
+        vm.ProjectIsHide = [true,true,true,true,true,true,true,true,true,true];
+            
+        vm.SubmitProject = SubmitProject;
+        
+        vm.SchoolIsHide = [true,true,true,true,true,true,true,true,true,true];
+            
+        vm.SubmitSchool = SubmitSchool;
+        
         activate();
+        
         vm.LoadData = LoadData;
         ////////////////
 
@@ -19,7 +33,19 @@
                 vm.background = response.data.background            
             })
         }
+
         
+        function SubmitSkill(index){
+            vm.SkillIsHide[index] = !vm.SkillIsHide[index];
+        }
+        
+        function SubmitProject(index){
+            vm.ProjectIsHide[index] = !vm.ProjectIsHide[index];
+        }
+        
+        function SubmitSchool(index){
+            vm.SchoolIsHide[index] = !vm.SchoolIsHide[index];
+        }
         //Load data from dialog form
         function LoadData(string){
             
@@ -30,17 +56,31 @@
                 var target = $("#target").val();
                 var strong = $("#strong").val();
                 var weak = $("#weak").val();
-                if (workplace === '' || target === ''|| strong === ''|| weak === '') {
-                    alert("Please fill all fields...!!!!!!");
+                if (workplace === '' && target === '' && strong === '' && weak === '') {
+                    alert("Please fill at least 1 field...!!!!!!");
                     e.preventDefault();
                 } else {
                     alert("Submitted Successfully......");
                 }
-            
-                vm.background.summary.current = workplace;
-                vm.background.summary.target = target;
-                vm.background.summary.strongPoint = strong;
-                vm.background.summary.weakPoint = weak;
+                if(workplace != "")
+                {
+                    vm.background.summary.current = workplace;
+                }
+                
+                if(target != "")
+                {
+                    vm.background.summary.target = target;
+                }
+                
+                if(strong != "")
+                {
+                    vm.background.summary.strongPoint = strong;
+                }
+                
+                if(weak != "")
+                {
+                    vm.background.summary.weakPoint = weak;
+                }
                 //End Edit Summary
             }
             
@@ -96,14 +136,14 @@
             
             if(string === "Skill")
             {
-                //Add Background - Project
+                //Add Background - skill
                 var name = $("#skill").val();
                 var level = $("#level").val();
                 if (name === '' || level === '') {
                     alert("Please fill all fields...!!!!!!");
                     e.preventDefault();
                 } else {
-                    alert("Submitted Successfully......");
+                    alert("Submitted    Successfully......");
                 }
                 
                 var dataObj = {
@@ -112,9 +152,29 @@
                 }
             
                 vm.background.skill.push(dataObj);
-                //End Add Background - Project
+                //End Add Background - skill
             }
             
+            if(string === "School")
+            {
+                //Add Background - School
+                var name = $("#school").val();
+                var time = $("#timeschool").val();
+                if (name === '' || time === ''){
+                    alert("Please fill all fields...!!!!!!");
+                    e.preventDefault();
+                } else {
+                    alert("Submitted Successfully......");
+                }
+                
+                var dataObj = {
+                    school:name,
+                    Time:time,
+                }
+            
+                vm.background.education.push(dataObj);
+                //End Add Background - School
+            }
         }
     }
 })();

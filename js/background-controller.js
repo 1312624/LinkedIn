@@ -23,6 +23,10 @@
             
         vm.SubmitSchool = SubmitSchool;
         
+        vm.ExpIsHide = [true,true,true,true,true,true,true,true,true,true];
+            
+        vm.SubmitExp = SubmitExp;
+        
         activate();
         
         vm.LoadData = LoadData;
@@ -34,7 +38,6 @@
             })
         }
 
-        
         function SubmitSkill(index){
             vm.SkillIsHide[index] = !vm.SkillIsHide[index];
         }
@@ -45,6 +48,10 @@
         
         function SubmitSchool(index){
             vm.SchoolIsHide[index] = !vm.SchoolIsHide[index];
+        }
+        
+        function SubmitExp(index){
+            vm.ExpIsHide[index] = !vm.ExpIsHide[index]
         }
         //Load data from dialog form
         function LoadData(string){

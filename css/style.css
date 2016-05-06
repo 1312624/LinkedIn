@@ -89,6 +89,19 @@
     display: block;
 }
 
+.background-profile-info:hover .timer{
+    margin-left: 41px;
+}
+
+.background-profile-info:hover .connectText{
+    margin-left: 588px;
+}
+
+.background-profile-info:hover .btnContact{
+    display: block;
+    margin-left: -88px;
+}
+
 .background-profile-info:hover .btnContact{
     display: block;
     margin-left: -88px;
@@ -324,11 +337,42 @@
     margin-left: -20px;
 }
 
+.btn-edit-exp{
+    display: none;
+    margin-top: 5px;
+    margin-left: -20px;
+}
 
-.background-project:hover .row .col-md-6  .project .row .col-md-2 .btn-edit-project {
+.background-project:hover .btn-edit-project {
     display: block;
 }
 
-.background-education:hover .row .col-md-6 div .row .col-md-2 .btn-edit-school {
+.background-education:hover  .btn-edit-school {
     display: block;
+}
+
+.background-experience:hover .btn-edit-exp{
+    display: block;
+}
+
+.row .timer{
+    font-weight: bold;
+    font-size: 18px;
+    margin-left: 100px;
+}
+
+.connection{
+    margin-left: 650px;
+    margin-top: -7px;
+}
+
+.connectText{
+    margin-left: 575px;
+    margin-top: -12px;
+    color:lightgray;
+}
+
+.edit-exp-form
+{
+    margin-top: -65px;
 }

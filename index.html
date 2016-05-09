@@ -27,10 +27,7 @@
 
 <body id="body" ng-app="app">
     
-    <script type="text/javascript">
-    </script>
-    
-    <div class="cover">
+    <div class="cover" ng-controller="FirebaseController as vm">
         <img src="img/Linkedin-logo-vector.png">
     </div>
 
@@ -659,8 +656,10 @@
     <script src="js/dialog.js" type="text/javascript"></script>
     <script src="js/countTo.js" type="text/javascript"></script>
     
-    <script src="js/angular.js"></script>
+    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+    <script src="js/angular.js"></script>  
     <script src="js/angular.min.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/1.0.0/angularfire.js"></script>
     <script src="js/module.js"></script>
     <script src="js/profile-module.js"></script>
     <script src="js/profile-controller.js"></script>
@@ -668,6 +667,8 @@
     <script src="js/contact-controller.js"></script>
     <script src="js/background-module.js"></script>
     <script src="js/background-controller.js"></script>
+    <script src="js/upload-firebase-module.js"></script>
+    <script src="js/upload-firebase-controller.js"></script>
 </body>
 
 </html>

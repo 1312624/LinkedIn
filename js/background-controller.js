@@ -5,8 +5,8 @@
         .module('app-background')
         .controller('BackgroundController', BackgroundController);
 
-    BackgroundController.$inject = ['$http','$scope'];
-    function BackgroundController($http,$scope) {
+    BackgroundController.$inject = ['$firebaseObject','$scope'];
+    function BackgroundController(firebaseObject,$scope) {
         window.SC = $scope;
         var vm = this;
         vm.background = {};
@@ -33,8 +33,11 @@
         ////////////////
 
         function activate() {
-            $http.get('data/profile.json').then(function(response){
-                vm.background = response.data.background            
+            var Firebaseref = new Firebase("https://mycvlinkedin.firebaseio.com/").child("background");
+            var obj = firebaseObject(Firebaseref); 
+                
+            obj.$bindTo($scope, 'data').then(function(){
+                vm.background = $scope.data;
             })
         }
 

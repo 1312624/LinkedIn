@@ -5,8 +5,8 @@
         .module('app-contact')
         .controller('ContactController', ContactController);
 
-    ContactController.$inject = ['$http','$scope'];
-    function ContactController($http,$scope) {
+    ContactController.$inject = ['$firebaseObject','$scope'];
+    function ContactController(firebaseObject,$scope) {
         var vm = this;
         vm.contact = {};
         
@@ -26,11 +26,14 @@
         ////////////////
 
         function activate() {
-            $http.get('data/profile.json').then(function(response) {
-                vm.contact = response.data.contact;
+            var Firebaseref = new Firebase("https://mycvlinkedin.firebaseio.com/").child("contact");
+            var obj = firebaseObject(Firebaseref);
+
+            obj.$bindTo($scope, 'data').then(function () {
+                vm.contact = $scope.data;
             })
-            
-         }
+
+        }
          function Hide(index){
             vm.IsHide[index] = !vm.IsHide[index];
         }

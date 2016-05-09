@@ -5,8 +5,8 @@
         .module('app-profile')
         .controller('ProfileController',ProfileController);
 
-    ProfileController.$inject = ['$http','$scope'];   
-    function ProfileController($http,$scope) {
+    ProfileController.$inject = ['$firebaseObject','$scope'];   
+    function ProfileController(firebaseObj,$scope) {
         window.SC = $scope;
         var vm = this;
                 
@@ -33,8 +33,11 @@
         ////////////////    
 
         function activate() {
-            $http.get('data/profile.json').then(function(response){
-                vm.profile = response.data.info;
+            var Firebaseref = new Firebase("https://mycvlinkedin.firebaseio.com/").child("info");
+            var obj = firebaseObj(Firebaseref); 
+                
+            obj.$bindTo($scope, 'data').then(function(){
+                vm.profile = $scope.data;
             })
         }
         

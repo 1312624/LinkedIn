@@ -5,12 +5,15 @@
         .module('app-background')
         .controller('BackgroundController', BackgroundController);
 
-    BackgroundController.$inject = ['$firebaseObject','$scope'];
-    function BackgroundController(firebaseObject,$scope) {
+    BackgroundController.$inject = ['$firebaseObject','$firebaseArray','$scope'];
+    function BackgroundController(firebaseObject,firebaseArray,$scope) {
         window.SC = $scope;
         var vm = this;
         vm.background = {};
         
+        var Firebaseref = new Firebase("https://mycvlinkedin.firebaseio.com/").child("background");
+        var obj = firebaseObject(Firebaseref); 
+            
         vm.SkillIsHide = [true,true,true,true,true,true,true,true,true,true];
             
         vm.SubmitSkill = SubmitSkill;
@@ -32,10 +35,7 @@
         vm.LoadData = LoadData;
         ////////////////
 
-        function activate() {
-            var Firebaseref = new Firebase("https://mycvlinkedin.firebaseio.com/").child("background");
-            var obj = firebaseObject(Firebaseref); 
-                
+        function activate() {    
             obj.$bindTo($scope, 'data').then(function(){
                 vm.background = $scope.data;
             })
@@ -162,6 +162,9 @@
                 }
             
                 vm.background.skill.push(dataObj);
+                
+                var skills = firebaseArray(Firebaseref).child("skill");
+                skills.push(dataObj);
                 //End Add Background - skill
             }
             

@@ -10,6 +10,9 @@
         var vm = this;
         vm.contact = {};
         
+        var Firebaseref = new Firebase("https://mycvlinkedin.firebaseio.com/").child("contact");
+        var obj = firebaseObject(Firebaseref);
+
         vm.IsHide = [true,true,true,true]; //0:facebook 1:gmail 2:linkedIn 3:ShowSpecificContact
         vm.Hide = Hide;
         vm.ChangeFacebook = ChangeFacebook;
@@ -26,9 +29,8 @@
         ////////////////
 
         function activate() {
-            var Firebaseref = new Firebase("https://mycvlinkedin.firebaseio.com/").child("contact");
-            var obj = firebaseObject(Firebaseref);
-
+            //bind data trên firebase nhánh contact vào biến vm.contact
+            //<=> thay đổi biến vm.contact thì dữ liệu trên firebase cũng thay đổi
             obj.$bindTo($scope, 'data').then(function () {
                 vm.contact = $scope.data;
             })

@@ -9,7 +9,10 @@
     function ProfileController(firebaseObj,$scope) {
         window.SC = $scope;
         var vm = this;
-                
+        
+        var Firebaseref = new Firebase("https://mycvlinkedin.firebaseio.com/").child("info");
+        var obj = firebaseObj(Firebaseref);
+        
         vm.profile = {};
         
         vm.IsHide = [true,true,true,true,true,true];
@@ -32,10 +35,9 @@
         
         ////////////////    
 
-        function activate() {
-            var Firebaseref = new Firebase("https://mycvlinkedin.firebaseio.com/").child("info");
-            var obj = firebaseObj(Firebaseref); 
-                
+        function activate() { 
+            //bind dữ liệu trên firebase ở nhánh info vào biến vm.profile
+            //<=> vm.profile thay đổi thì dữ liệu trên firebase cũng thay đổi
             obj.$bindTo($scope, 'data').then(function(){
                 vm.profile = $scope.data;
             })
@@ -100,6 +102,7 @@
             vm.profile.relationship = vm.ChangeRelationship();
             vm.IsHide[5] = !vm.IsHide[5];
         }
+        
        /* $scope.ChangeName = function(){
             var firstname = $scope.firstname;
             var lastname = $scope.lastname;
